@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enroll Client - Health Information System</title>
+    <link rel="stylesheet" href="{% static 'core/style.css' %}">
+</head>
+<body>
+<header>
+    <h1>Enroll Client into Program</h1>
+</header>
+<nav>
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'client_list' %}">View Clients</a>
+</nav>
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enroll Client</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home - Health Information System</title>
+    <link rel="stylesheet" href="{% static 'core/style.css' %}">
+</head>
+<body>
+<header>
+    <h1>Health Information System</h1>
+</header>
+<nav>
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'create_client' %}">Register Client</a>
+    <a href="{% url 'create_program' %}">Create Program</a>
+    <a href="{% url 'enroll_client' %}">Enroll Client</a>
+    <a href="{% url 'client_list' %}">View Clients</a>
+</nav>
+<div class="container">
+    <h2>Welcome, Doctor!</h2>
+    <p>Use the navigation bar above to manage clients and health programs.</p>
+</div>
+</body>
+</html>

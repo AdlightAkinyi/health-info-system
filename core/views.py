@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import UserRegistrationForm, ClientForm
+from .models import Program, Client
 
 def signup(request):
     if request.method == "POST":
@@ -28,3 +29,11 @@ def login_view(request):
         form = AuthenticationForm()
     return render(request, 'login.html', {'form': form})
 
+def home(request):
+    programs = Program.objects.all()
+    return render(request, 'home.html', {'programs': programs})
+
+def client_profile(request, client_id):
+    client = Client.objects.get(id=client_id)
+    enrollments = client.enrollments.all()
+    return render(request, 'client_profile.html', {'client': client, 'enrollments': enrollments})

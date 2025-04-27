@@ -6,15 +6,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     
-     <link rel="stylesheet" href="{% static 'style.css' %}">  
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <style>
+        /* Basic styling for body */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Styling for the container */
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* Styling for form elements */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input,
+        form button {
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        form input:focus,
+        form button:focus {
+            outline: none;
+            border-color: #007BFF;
+        }
+
+        /* Styling for the button */
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Styling for the sign-up link */
+        p {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        p a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+                max-width: 90%;
+            }
+
+            button {
+                font-size: 16px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+
 </head>
 <body>
-    <h2>Sign Up</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}  <!-- Render the form fields -->
-        <button type="submit">Sign Up</button>
-    </form>
-    <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- Render the form fields -->
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+    </div>
 </body>
 </html>
+

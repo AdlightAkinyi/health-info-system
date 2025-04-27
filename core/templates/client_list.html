@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Clients List - Health Information System</title>
-    <link rel="stylesheet" href="{% static 'core/style.css' %}">
+     <link rel="stylesheet" href="{% static 'style.css' %}">  
 </head>
 <body>
 <header>
@@ -17,6 +17,7 @@
     <ul>
         {% for client in clients %}
             <li>
+    
                 <a href="{% url 'client_profile' client.id %}">{{ client.name }}</a> ({{ client.gender }}, {{ client.age }} years old)
             </li>
         {% empty %}

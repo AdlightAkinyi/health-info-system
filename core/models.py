@@ -1,6 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class Client(models.Model):
+    first_name = models.CharField(max_length=100, default="Unknown") 
+
 class Program(models.Model):
     """
     Represents a Health Program (e.g., TB, Malaria, HIV).
@@ -16,6 +19,7 @@ class Program(models.Model):
         verbose_name = 'Health Program'
         verbose_name_plural = 'Health Programs'
 
+
 class Client(models.Model):
     """
     Represents a Client/Patient registered in the system.
@@ -27,12 +31,15 @@ class Client(models.Model):
     )
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    full_name = models.CharField(max_length=200)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
     date_of_birth = models.DateField()
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES)
+    phone_number = models.CharField(max_length=15, blank=True, null=True)
+    address = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
-        return self.full_name
+        return f"{self.first_name} {self.last_name}"
 
     @property
     def age(self):
@@ -43,9 +50,10 @@ class Client(models.Model):
         )
 
     class Meta:
-        ordering = ['full_name']
+        ordering = ['last_name', 'first_name']
         verbose_name = 'Client'
         verbose_name_plural = 'Clients'
+
 
 class Enrollment(models.Model):
     """
@@ -63,3 +71,4 @@ class Enrollment(models.Model):
         ordering = ['-date_enrolled']
         verbose_name = 'Enrollment'
         verbose_name_plural = 'Enrollments'
+

@@ -9,16 +9,30 @@
 <header>
     <h1>Health Information System</h1>
 </header>
+
 <nav>
     <a href="{% url 'home' %}">Home</a>
-    <a href="{% url 'create_client' %}">Register Client</a>
+    <a href="{% url 'signup' %}">Register Client</a>  <!-- Added link to signup page -->
     <a href="{% url 'create_program' %}">Create Program</a>
     <a href="{% url 'enroll_client' %}">Enroll Client</a>
     <a href="{% url 'client_list' %}">View Clients</a>
+
 </nav>
+
 <div class="container">
     <h2>Welcome, Doctor!</h2>
     <p>Use the navigation bar above to manage clients and health programs.</p>
+
+    <hr>
+
+    <h3>API Quick Links</h3>
+    <ul>
+        <li><a href="/api/clients/">Clients API</a></li>
+        <li><a href="/api/programs/">Programs API</a></li>
+        <li><a href="/api/enrollments/">Enrollments API</a></li>
+    </ul>
 </div>
+
 </body>
 </html>
+

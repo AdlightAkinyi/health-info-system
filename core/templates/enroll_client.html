@@ -18,6 +18,14 @@
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Enroll Client</button>
+        <!-- enroll_client.html -->
+<h2>Enroll Client</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Enroll</button>
+</form>
+
     </form>
 </div>
 </body>
